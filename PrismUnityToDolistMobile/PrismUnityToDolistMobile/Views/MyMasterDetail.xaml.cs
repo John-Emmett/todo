@@ -14,9 +14,6 @@ namespace PrismUnityToDolistMobile.Views
             get { return Device.Idiom != TargetIdiom.Phone; }
         }
 
-        public void OnMenuItemSelected()
-        {
-
-        } 
+     
     }
 }

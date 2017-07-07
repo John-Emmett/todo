@@ -45,6 +45,27 @@ namespace ToDoListProject.Repositories.Repositories
                 Id = "3",
                 Text = "Task Three"
                 },
+                new TodoItem
+                {
+                Id = "4",
+                Text = "Task Four"
+                },
+                new TodoItem
+                {
+                Id = "5",
+                Text = "Task Five"
+                },
+                new TodoItem
+                {
+                Id = "6",
+                Text = "Task Six"
+                },
+                new TodoItem
+                {
+                Id = "7",
+                Text = "Task Seven"
+                },
+
             };                               
             return todos;
         }

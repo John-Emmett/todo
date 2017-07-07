@@ -21,7 +21,6 @@ namespace PrismUnityToDolistMobile.Views
             _viewmodel = (ListViewPageViewModel)BindingContext;
         }
 
-
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -81,9 +80,9 @@ namespace PrismUnityToDolistMobile.Views
 
         public void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var todoItem = e.SelectedItem as TodoItem;
+            //var todoItem = e.SelectedItem as TodoItem;
             var TodoDetail = new TodoDetail();
-            TodoDetail.BindingContext = todoItem;
+            //TodoDetail.BindingContext = todoItem;
             Navigation.PushAsync(TodoDetail);
         }
 
@@ -148,35 +147,5 @@ namespace PrismUnityToDolistMobile.Views
             DisplayAlert("Toolbar Sample", "Settings Clicked", "OK");
         }
 
-       
-        Image rightImage;
-        int itemIndex = -1;
-    
-        private void Delete()
-        {
-            if (itemIndex >= 0)
-                _viewmodel.Todos.RemoveAt(itemIndex);
-            this.synclist.ResetSwipe();
-        }
-
-        private void ListView_SwipeStarted(object sender, SwipeStartedEventArgs e)
-        {
-            itemIndex = -1;
-        }
-
-        private void ListView_SwipeEnded(object sender, SwipeEndedEventArgs e)
-        {
-            itemIndex = e.ItemIndex;
-        }
-
-        private void rightImage_BindingContextChanged(object sender, EventArgs e)
-        {
-            if (rightImage == null)
-            {
-                rightImage = sender as Image;
-                (rightImage.Parent as View).GestureRecognizers.Add(new TapGestureRecognizer() { Command = new Command(Delete) });
-                rightImage.Source = ImageSource.FromResource("Images.Delete.png");
-            }
-        }
     }
 }

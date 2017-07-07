@@ -8,9 +8,9 @@
              x:Name="ListViewPage"
              Title="Tasks">
 
-
     <StackLayout>
-        <!--<Picker  Title="Sort Tasks By">
+
+    <!--<Picker  Title="Sort Tasks By">
             <Picker.Items>
                 <x:String>Date Created</x:String>
                 <x:String>Completed</x:String>
@@ -19,7 +19,7 @@
             </Picker.Items>
         </Picker>-->
 
-        <!--<SearchBar x:Name="SearchListview"
+    <!--<SearchBar x:Name="SearchListview"
                    BindingContext="{Binding OnFilterTextChanged, Mode=TwoWay}"
                    SearchCommand="{Binding SearchCommandExecute}"
                    SearchCommandParameter="{Binding OnFilterTextChanged}"
@@ -30,40 +30,37 @@
 
 
 
-        <!--<Button Clicked="SortAlphaAsc" Text="Sort ASC" />
+    <!--<Button Clicked="SortAlphaAsc" Text="Sort ASC" />
         <Button Clicked="SortAlphaDesc" Text="Sort DESC" />
         <Button Clicked="SelectAllItems" Text="Select All" />
         <Button Clicked="DeselectAllItems" Text="Deselect All" />
         <Button Clicked="SortDateMostRecent" Text="Sort by most recent" />-->
 
-        <syncfusion:SfListView x:Name="synclist" 
+    <syncfusion:SfListView x:Name="synclist" 
                    ItemsSource="{Binding Todos, Mode=TwoWay}"
-                   ItemSize="150"
-                   AllowSwiping="True"
-                   SwipeStarted="ListView_SwipeStarted"
-                   SwipeEnded="ListView_SwipeEnded">
+                   ItemSize="200"   
+                   SelectionMode="Single"
+                   SelectionGesture="Tap"
+                   SelectionBackgroundColor="#E4E4E4">
 
-            <syncfusion:SfListView.ItemTemplate>
 
-                <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Label Grid.Row="0" Text="ID"  FontAttributes="Bold"/>
-                        <Label Grid.Row="1" Text="{Binding Id}"  FontAttributes="Italic" />
-                        <Label Grid.Row="2" Text="Task"  FontAttributes="Bold" />
-                        <Label Grid.Row="3" Text="{Binding Text}" FontAttributes="Italic"/>
-                        <!--<Label Grid.Row="4" Text="Created On"  FontAttributes="Bold" />
-                        <Label Grid.Row="5" Text="{Binding CreatedAt, StringFormat='{0:dd/MM/yyyy HH:MM:ss tt}'}" FontAttributes="Italic"/>-->
-                    </Grid>
-                </DataTemplate>
-            </syncfusion:SfListView.ItemTemplate>
-        </syncfusion:SfListView>
-    </StackLayout>
+        <syncfusion:SfListView.ItemTemplate>
+            <DataTemplate>
+                <!--<ViewCell Tapped="OnItemSelected">
+                        <ViewCell.ContextActions>
+                            <MenuItem Command="{Binding Path=BindingContext.DeleteTodoCommand2, Source={x:Reference Name=ListViewPage }}" CommandParameter="{Binding .}"  Text="Delete" IsDestructive="True" />
+                        </ViewCell.ContextActions>-->
+                        <StackLayout>
+                            <Label Text="ID"  FontAttributes="Bold"/>
+                            <Label Text="{Binding Id}"  FontAttributes="Italic" />
+                            <Label Text="Task"  FontAttributes="Bold" />
+                            <Label Text="{Binding Text}" FontAttributes="Italic"/>
+                        </StackLayout>
+                    <!--</ViewCell>-->
+            </DataTemplate>
+        </syncfusion:SfListView.ItemTemplate>
+    </syncfusion:SfListView>
+</StackLayout>
 </ContentPage>
 
 <!--<ListView ItemsSource="{Binding Todos, Mode=TwoWay}"
@@ -88,8 +85,8 @@
                     </ViewCell>
                 </DataTemplate>                   
             </ListView.ItemTemplate>
-        </ListView>-->
-        
+        </ListView>
+</ContentPage>-->
 
 
 
